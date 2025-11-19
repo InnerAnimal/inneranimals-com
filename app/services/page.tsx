@@ -1,4 +1,4 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../components/ui/card';
 import { Code, Smartphone, Cloud, BarChart, Palette, Shield } from 'lucide-react';
 
 export const metadata = {

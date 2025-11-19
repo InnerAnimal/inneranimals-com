@@ -2,9 +2,8 @@
 
 import Link from 'next/link';
 import { ArrowRight, Zap, Shield, Users, CheckCircle } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { motion } from 'framer-motion';
+import { Button } from '../components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 
 export default function Home() {
   const features = [
@@ -37,12 +36,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#1E40AF] via-blue-600 to-blue-800 text-white">
         <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center"
-          >
+          <div className="text-center animate-in fade-in slide-in-from-bottom-4 duration-600">
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
               Innovative Solutions for
               <span className="block text-blue-200">Modern Businesses</span>
@@ -62,7 +56,7 @@ export default function Home() {
                 <Link href="/portfolio">View Our Work</Link>
               </Button>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -79,12 +73,7 @@ export default function Home() {
           </div>
           <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             {features.map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
+              <div key={feature.title} className="animate-in fade-in slide-in-from-bottom-4" style={{ animationDelay: `${index * 100}ms` }}>
                 <Card className="h-full">
                   <CardHeader>
                     <div className="mb-4">{feature.icon}</div>
@@ -94,7 +83,7 @@ export default function Home() {
                     <CardDescription className="text-base">{feature.description}</CardDescription>
                   </CardContent>
                 </Card>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -115,16 +104,14 @@ export default function Home() {
               </div>
               <div className="space-y-6">
                 {benefits.map((benefit, index) => (
-                  <motion.div
+                  <div
                     key={benefit}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    className="flex items-start"
+                    className="flex items-start animate-in fade-in slide-in-from-left-4"
+                    style={{ animationDelay: `${index * 100}ms` }}
                   >
                     <CheckCircle className="h-6 w-6 text-[#1E40AF] mt-0.5 mr-3 flex-shrink-0" />
                     <p className="text-lg text-gray-700">{benefit}</p>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             </div>
